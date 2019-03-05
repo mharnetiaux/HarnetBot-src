@@ -1,0 +1,54 @@
+{
+    "name": "harnet",
+    "description": "",
+    "services": [
+        {
+            "type": "abs",
+            "tenantId": "<tenant-id>",
+            "subscriptionId": "<subscription-id>",
+            "resourceGroup": "<resource-group-name>",
+            "serviceName": "<bot-service-name>",
+            "name": "<friendly-service-name>",
+            "id": "1",
+            "appId": "<app-id>"
+        },
+        {
+            "type": "blob",
+            "connectionString": "<connection-string>",
+            "tenantId": "<tenant-id>",
+            "subscriptionId": "<subscription-id>",
+            "resourceGroup": "<resource-group-name>",
+            "serviceName": "<blob-service-name>",
+            "id": "2"
+        },
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "<local-endpoint-url>",
+            "name": "development",
+            "id": "3"
+        },
+        {
+            "type": "endpoint",
+            "appId": "<app-id>",
+            "appPassword": "<app-password>",
+            "endpoint": "<hosted-endpoint-url>",
+            "name": "production",
+            "id": "4"
+        },
+        {
+            "type": "appInsights",
+            "instrumentationKey": "<instrumentation-key>",
+            "applicationId": "<appinsights-app-id>",
+            "apiKeys": {},
+            "tenantId": "<tenant-id>",
+            "subscriptionId": "<subscription-id>",
+            "resourceGroup": "<resource-group>",
+            "serviceName": "<appinsights-service-name>",
+            "id": "5"
+        }
+    ],
+    "padlock": "pMrEttIhzdhx5xtSEW8scA==!c6IVG/BtXRWoZf4g3Qwxr7dsuUPWuQKJTLeIY9mi57LKOjvHBcQYnKFc19+2Nl1M",
+    "version": "2.0"
+}
