@@ -53,23 +53,6 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 
-var a = [1,2,3];
-
-
-
-a.map((idiom)=>{
-    bot.dialog(idiom,
-        (session) => {
-            session.send(idiom);
-            session.endDialog();
-        }
-    ).triggerAction({
-        matches: idiom
-    });
-});
-
-
-
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
 /*
