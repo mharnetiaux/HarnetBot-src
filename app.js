@@ -1,7 +1,14 @@
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
-
+var idioms = {
+    "BlessingDisguise": {
+        meaning: "A good thing that seemed bad at first."
+    },
+    "DimeDozen": {
+        meaning: "Something common.."
+    }
+};
 var restify = require('restify');
 var builder = require('botbuilder');
 var botbuilder_azure = require("botbuilder-azure");
@@ -57,14 +64,7 @@ bot.recognizer(recognizer);
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 
-var idioms = {
-    "BlessingDisguise": {
-         meaning: "A good thing that seemed bad at first."
-    },
-    "DimeDozen": {
-        meaning: "Something common.."
-    }
-};
+
 
 bot.dialog("idioms", [
     function(session){
