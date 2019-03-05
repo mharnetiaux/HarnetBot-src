@@ -36,7 +36,7 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 // This default message handler is invoked if the user's utterance doesn't
 // match any intents handled by other dialogs.
 var bot = new builder.UniversalBot(connector, function (session, args) {
-    session.send('You reached the default message handler. You said farts\'%s\'.', session.message.text);
+    session.send('You reached the default message handler. You said test\'%s\'.', session.message.text);
 });
 
 bot.set('storage', tableStorage);
@@ -56,7 +56,7 @@ bot.recognizer(recognizer);
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
 bot.dialog('GreetingDialog',
     (session) => {
-        session.send('You reached the Greeting intent. You said \'%s\'.', session.message.text);
+        session.send('You reached the Greeting intent. You said test\'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
@@ -65,7 +65,7 @@ bot.dialog('GreetingDialog',
 
 bot.dialog('HelpDialog',
     (session) => {
-        session.send('You reached the Help intent. You said \'%s\'.', session.message.text);
+        session.send('You reached the Help intent. You said test\'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
@@ -74,7 +74,7 @@ bot.dialog('HelpDialog',
 
 bot.dialog('CancelDialog',
     (session) => {
-        session.send('You reached the Cancel intent. You said \'%s\'.', session.message.text);
+        session.send('You reached the Cancel intent. You said test\'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
