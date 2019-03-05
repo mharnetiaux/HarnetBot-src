@@ -36,7 +36,7 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 // This default message handler is invoked if the user's utterance doesn't
 // match any intents handled by other dialogs.
 var bot = new builder.UniversalBot(connector, function (session, args) {
-    session.send('Default. You said \'%s\'.', session.message.text);
+    session.send('Sorry did not recognize \'%s\'.', session.message.text, "Please checkout the following link");
 });
 
 bot.set('storage', tableStorage);
@@ -51,11 +51,6 @@ const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisApp
 // Create a recognizer that gets intents from LUIS, and add it to the bot
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
-
-
-
-
-
 
 
 
