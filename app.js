@@ -22,24 +22,13 @@ var connector = new builder.ChatConnector({
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
-/*----------------------------------------------------------------------------------------
-* Bot Storage: This is a great spot to register the private state storage for your bot. 
-* We provide adapters for Azure Table, CosmosDb, SQL Azure, or you can implement your own!
-* For samples and documentation, see: https://github.com/Microsoft/BotBuilder-Azure
-* ---------------------------------------------------------------------------------------- */
-
-var tableName = 'botdata';
-var azureTableClient = new botbuilder_azure.AzureTableClient(tableName, process.env['AzureWebJobsStorage']);
-var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient);
-
 // Create your bot with a function to receive messages from the user
 // This default message handler is invoked if the user's utterance doesn't
 // match any intents handled by other dialogs.
 var bot = new builder.UniversalBot(connector, function (session, args) {
-    session.send('You reached the default message handler. You said test\'%s\'.', session.message.text);
+    session.send('You reached the default message handler. You said \'%s\'.', session.message.text);
 });
 
-bot.set('storage', tableStorage);
 
 // Make sure you add code to validate these fields
 var luisAppId = process.env.LuisAppId;
@@ -56,7 +45,7 @@ bot.recognizer(recognizer);
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
 bot.dialog('GreetingDialog',
     (session) => {
-        session.send('You reached the Greeting intent. You said test\'%s\'.', session.message.text);
+        session.send('You reached the Greeting intent. You said \'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
@@ -65,7 +54,7 @@ bot.dialog('GreetingDialog',
 
 bot.dialog('HelpDialog',
     (session) => {
-        session.send('You reached the Help intent. You said test\'%s\'.', session.message.text);
+        session.send('You reached the Help intent. You said \'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
@@ -74,7 +63,7 @@ bot.dialog('HelpDialog',
 
 bot.dialog('CancelDialog',
     (session) => {
-        session.send('You reached the Cancel intent. You said test\'%s\'.', session.message.text);
+        session.send('You reached the Cancel intent. You said \'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
