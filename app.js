@@ -72,7 +72,7 @@ bot.dialog("idioms", [
     },
     function(session, results){
         if(results.response){
-            session.beginDialog(idioms[results.response.entity].meaning);
+            session.send(idioms[results.response.entity].meaning);
         }
     }
 ]).triggerAction({
