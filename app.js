@@ -50,13 +50,12 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 
-
-
-bot.dialog('greetings',
-    (session) => {
+bot.dialog('greetings', [
+    // Step 1
+    function (session) {
         builder.Prompts.text(session, 'Hello! I am here to help with confusing phrases. Can I help?');
-    }
-);
+    },
+]);
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 
