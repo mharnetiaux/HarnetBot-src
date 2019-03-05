@@ -53,26 +53,38 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 
+var a = [1,2,3];
+
+
+
+(function () {
+    a.map((idiom)=>{
+        bot.dialog(idiom,
+            (session) => {
+                session.send(idiom);
+                session.endDialog();
+            }
+        ).triggerAction({
+            matches: idiom
+        });
+    });
+}());
+
+
 
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
-
-
-bot.dialog('BlessingDisguise', function (session, args, next) {
-    session.send('A good thing that seemed bad at first.');
-    session.endDialog();
-})
-    .triggerAction({
-        matches: /^BlessingDisguise$/i,
-        onSelectAction: (session, args, next) => {
-            // Add the help dialog to the dialog stack
-            // (override the default behavior of replacing the stack)
-            session.beginDialog(args.action, args);
-        }
-    });
-
-
 /*
+bot.dialog('BlessingDisguise',
+    (session) => {
+        session.send('A good thing that seemed bad at first.');
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'BlessingDisguise'
+});
+
+
 bot.dialog('DimeDozen',
     (session) => {
         session.send('Something common.');
