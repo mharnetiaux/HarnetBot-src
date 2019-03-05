@@ -5,8 +5,6 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var botbuilder_azure = require("botbuilder-azure");
 
-var msg = "...";
-
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -38,7 +36,6 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 // match any intents handled by other dialogs.
 var bot = new builder.UniversalBot(connector, function (session, args) {
     session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
-    session.endConversation(msg);
 }).set('storage', tableStorage);
 
 // Make sure you add code to validate these fields
