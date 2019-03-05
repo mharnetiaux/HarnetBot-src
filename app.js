@@ -56,19 +56,20 @@ bot.recognizer(recognizer);
 
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
-bot.dialog('BlessingDisguise',
-    (session) => {
-        session.send('A good thing that seemed bad at first.');
-        session.endDialog();
-    }
-).triggerAction({
-    matches: /^BlessingDisguise$/i,
-    onSelectAction: (session, args, next) => {
-        // Add the help dialog to the dialog stack
-        // (override the default behavior of replacing the stack)
-        session.beginDialog(args.action, args);
-    }
-});
+
+
+bot.dialog('BlessingDisguise', function (session, args, next) {
+    session.send('A good thing that seemed bad at first.');
+    session.endDialog();
+})
+    .triggerAction({
+        matches: /^BlessingDisguise$/i,
+        onSelectAction: (session, args, next) => {
+            // Add the help dialog to the dialog stack
+            // (override the default behavior of replacing the stack)
+            session.beginDialog(args.action, args);
+        }
+    });
 
 
 /*
