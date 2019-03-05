@@ -57,18 +57,16 @@ var a = [1,2,3];
 
 
 
-(function () {
-    a.map((idiom)=>{
-        bot.dialog(idiom,
-            (session) => {
-                session.send(idiom);
-                session.endDialog();
-            }
-        ).triggerAction({
-            matches: idiom
-        });
+a.map((idiom)=>{
+    bot.dialog(idiom,
+        (session) => {
+            session.send(idiom);
+            session.endDialog();
+        }
+    ).triggerAction({
+        matches: idiom
     });
-}());
+});
 
 
 
