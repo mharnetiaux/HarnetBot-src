@@ -2,10 +2,10 @@
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
 var idioms = {
-    "BlessingDisguise": {
+    "A Blessing in Disguise": {
         meaning: "A good thing that seemed bad at first."
     },
-    "DimeDozen": {
+    "A Dime a Dozen": {
         meaning: "Something common.."
     }
 };
