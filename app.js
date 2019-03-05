@@ -55,13 +55,17 @@ bot.recognizer(recognizer);
 
 
 
+bot.dialog('greetings',
+    (session) => {
+        builder.Prompts.text(session, 'Hello! I am here to help with confusing phrases. Can I help?');
+    }
+);
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 
 bot.dialog('BlessingDisguise',
     (session) => {
         session.send('A good thing that seemed bad at first.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BlessingDisguise'
@@ -71,7 +75,6 @@ bot.dialog('BlessingDisguise',
 bot.dialog('DimeDozen',
     (session) => {
         session.send('Something common.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'DimeDozen'
@@ -81,7 +84,6 @@ bot.dialog('DimeDozen',
 bot.dialog('BeatAroundBush',
     (session) => {
         session.send('Avoid saying what you mean, usually because it is uncomfortable.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BeatAroundBush'
@@ -91,7 +93,6 @@ bot.dialog('BeatAroundBush',
 bot.dialog('BetterLateNever',
     (session) => {
         session.send('Better to arrive late than not to come at all.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BetterLateNever'
@@ -100,7 +101,6 @@ bot.dialog('BetterLateNever',
 bot.dialog('BiteBullet',
     (session) => {
         session.send('To get something over with because it is inevitable.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BiteBullet'
@@ -109,7 +109,6 @@ bot.dialog('BiteBullet',
 bot.dialog('BreakLeg',
     (session) => {
         session.send('Good luck.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BreakLeg'
@@ -118,7 +117,6 @@ bot.dialog('BreakLeg',
 bot.dialog('CallDay',
     (session) => {
         session.send('Stop working on something.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'CallDay'
@@ -127,7 +125,6 @@ bot.dialog('CallDay',
 bot.dialog('CutSomeSlack',
     (session) => {
         session.send('Don\'t be so critical.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'CutSomeSlack'
@@ -137,7 +134,6 @@ bot.dialog('CutSomeSlack',
 bot.dialog('CuttingCorners',
     (session) => {
         session.send('Doing something poorly in order to save time or money.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'CuttingCorners'
@@ -147,7 +143,6 @@ bot.dialog('CuttingCorners',
 bot.dialog('EasyDoesIt',
     (session) => {
         session.send('Slow down.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'EasyDoesIt'
@@ -156,7 +151,6 @@ bot.dialog('EasyDoesIt',
 bot.dialog('OutOfHand',
     (session) => {
         session.send('Get out of control.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'OutOfHand'
@@ -165,7 +159,6 @@ bot.dialog('OutOfHand',
 bot.dialog('OutOfSystem',
     (session) => {
         session.send('Do the thing you\'ve been wanting to do so you can move on.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'OutOfSystem'
@@ -175,7 +168,6 @@ bot.dialog('OutOfSystem',
 bot.dialog('ActTogether',
     (session) => {
         session.send('Work better or leave.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'ActTogether'
@@ -185,7 +177,6 @@ bot.dialog('ActTogether',
 bot.dialog('BenefitDoubt',
     (session) => {
         session.send('Trust what someone says.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BenefitDoubt'
@@ -194,7 +185,6 @@ bot.dialog('BenefitDoubt',
 bot.dialog('BackDrawingBoard',
     (session) => {
         session.send('Start over.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BackDrawingBoard'
@@ -204,7 +194,6 @@ bot.dialog('BackDrawingBoard',
 bot.dialog('HangInThere',
     (session) => {
         session.send('Don\'t give up.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'HangInThere'
@@ -213,7 +202,6 @@ bot.dialog('HangInThere',
 bot.dialog('HitSack',
     (session) => {
         session.send('Go to sleep.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'HitSack'
@@ -223,7 +211,6 @@ bot.dialog('HitSack',
 bot.dialog('RocketScience',
     (session) => {
         session.send('It\'s not complicated.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'RocketScience'
@@ -233,7 +220,6 @@ bot.dialog('RocketScience',
 bot.dialog('LetOffHook',
     (session) => {
         session.send('To not hold someone responsible for something.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'LetOffHook'
@@ -242,7 +228,6 @@ bot.dialog('LetOffHook',
 bot.dialog('LongStoryShort',
     (session) => {
         session.send('Tell something briefly.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'LongStoryShort'
@@ -251,7 +236,6 @@ bot.dialog('LongStoryShort',
 bot.dialog('MissBoat',
     (session) => {
         session.send('It\'s too late.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'MissBoat'
@@ -260,7 +244,6 @@ bot.dialog('MissBoat',
 bot.dialog('PainNoGain',
     (session) => {
         session.send('You have to work for what you want.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'PainNoGain'
@@ -269,7 +252,6 @@ bot.dialog('PainNoGain',
 bot.dialog('OnBall',
     (session) => {
         session.send('Doing a good job.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'OnBall'
@@ -278,7 +260,6 @@ bot.dialog('OnBall',
 bot.dialog('PullLeg',
     (session) => {
         session.send('To joke with someone.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'PullLeg'
@@ -287,7 +268,6 @@ bot.dialog('PullLeg',
 bot.dialog('PullTogether',
     (session) => {
         session.send('Calm down.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'PullTogether'
@@ -296,7 +276,6 @@ bot.dialog('PullTogether',
 bot.dialog('SoFarSoGood',
     (session) => {
         session.send('Things are going well so far.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'SoFarSoGood'
@@ -305,7 +284,6 @@ bot.dialog('SoFarSoGood',
 bot.dialog('SpeakDevil',
     (session) => {
         session.send('The person we were just talking about showed up!');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'SpeakDevil'
@@ -315,7 +293,6 @@ bot.dialog('SpeakDevil',
 bot.dialog('LastStraw',
     (session) => {
         session.send('My patience has run out.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'LastStraw'
@@ -324,7 +301,6 @@ bot.dialog('LastStraw',
 bot.dialog('BestBothWorlds',
     (session) => {
         session.send('An ideal situation.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BestBothWorlds'
@@ -334,7 +310,6 @@ bot.dialog('BestBothWorlds',
 bot.dialog('FliesHavingFun',
     (session) => {
         session.send('You don\'t notice how long something lasts when it\'s fun.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'FliesHavingFun'
@@ -343,7 +318,6 @@ bot.dialog('FliesHavingFun',
 bot.dialog('BentShape',
     (session) => {
         session.send('To get upset.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'BentShape'
@@ -352,7 +326,6 @@ bot.dialog('BentShape',
 bot.dialog('MattersWorse',
     (session) => {
         session.send('Make a problem worse.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'MattersWorse'
@@ -361,7 +334,6 @@ bot.dialog('MattersWorse',
 bot.dialog('UnderWeather',
     (session) => {
         session.send('Sick.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'UnderWeather'
@@ -370,7 +342,6 @@ bot.dialog('UnderWeather',
 bot.dialog('CrossBridge',
     (session) => {
         session.send('Let\'s not talk about that problem right now.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'CrossBridge'
@@ -379,7 +350,6 @@ bot.dialog('CrossBridge',
 bot.dialog('WrapHeadAround',
     (session) => {
         session.send('Understand something complicated.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'WrapHeadAround'
@@ -388,7 +358,6 @@ bot.dialog('WrapHeadAround',
 bot.dialog('SayThatAgain',
     (session) => {
         session.send('That\'s true, I agree.');
-        session.endConversation(msg);
     }
 ).triggerAction({
     matches: 'SayThatAgain'
@@ -397,7 +366,7 @@ bot.dialog('SayThatAgain',
 bot.dialog('GuessAsMine',
     (session) => {
         session.send('I have no idea.');
-        session.endConversation(msg);
+
     }
 ).triggerAction({
     matches: 'GuessAsMine'
