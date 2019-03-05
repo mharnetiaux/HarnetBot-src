@@ -58,7 +58,8 @@ bot.recognizer(recognizer);
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
 bot.dialog('BlessingDisguise',
     (session) => {
-        session.endDialog('A good thing that seemed bad at first.');
+        session.send('A good thing that seemed bad at first.');
+        session.endDialog();
     }
 ).triggerAction({
     matches: /^BlessingDisguise$/i,
