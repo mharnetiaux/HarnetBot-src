@@ -1,14 +1,6 @@
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
-var idioms = {
-    "A Blessing in Disguise": {
-        meaning: "A good thing that seemed bad at first."
-    },
-    "A Dime a Dozen": {
-        meaning: "Something common.."
-    }
-};
 var restify = require('restify');
 var builder = require('botbuilder');
 var botbuilder_azure = require("botbuilder-azure");
@@ -64,26 +56,6 @@ bot.recognizer(recognizer);
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 
-
-
-bot.dialog("idioms", [
-    function(session){
-        builder.Prompts.choice(session, "Idioms:", idioms);
-    },
-    function(session, results){
-        if(results.response){
-            session.send(idioms[results.response.entity].meaning);
-        }
-    }
-]).triggerAction({
-        // The user can request this at any time.
-        // Once triggered, it clears the stack and prompts the main menu again.
-        matches: /^idioms$/i,
-        confirmPrompt: "This will cancel your request. Are you sure?"
-});
-
-
-/*
 bot.dialog('BlessingDisguise',
     (session) => {
         session.send('A good thing that seemed bad at first.');
@@ -428,5 +400,3 @@ bot.dialog('GuessAsMine',
 ).triggerAction({
     matches: 'GuessAsMine'
 });
-
-*/
