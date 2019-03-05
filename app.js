@@ -37,9 +37,8 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 // match any intents handled by other dialogs.
 var bot = new builder.UniversalBot(connector, function (session, args) {
     session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
-});
-
-bot.set('storage', tableStorage);
+    session.beginDialog("idioms");
+}).set('storage', tableStorage);
 
 // Make sure you add code to validate these fields
 var luisAppId = process.env.LuisAppId;
@@ -53,8 +52,37 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 
+
+
 // Add a dialog for each intent that the LUIS app recognizes.
-// See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
+// See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
+
+var idioms = {
+    "BlessingDisguise": {
+         meaning: "A good thing that seemed bad at first."
+    },
+    "DimeDozen": {
+        meaning: "Something common.."
+    }
+};
+
+bot.dialog("idioms", [
+    function(session){
+        builder.Prompts.choice(session, "Idioms:", idioms);
+    },
+    function(session, results){
+        if(results.response){
+            session.beginDialog(idioms[results.response.entity].meaning);
+        }
+    }
+]).triggerAction({
+        // The user can request this at any time.
+        // Once triggered, it clears the stack and prompts the main menu again.
+        matches: /^idioms$/i,
+        confirmPrompt: "This will cancel your request. Are you sure?"
+});
+
+
 /*
 bot.dialog('BlessingDisguise',
     (session) => {
