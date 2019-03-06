@@ -21,22 +21,11 @@ var connector = new builder.ChatConnector({
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
-/*----------------------------------------------------------------------------------------
-* Bot Storage: This is a great spot to register the private state storage for your bot.
-* We provide adapters for Azure Table, CosmosDb, SQL Azure, or you can implement your own!
-* For samples and documentation, see: https://github.com/Microsoft/BotBuilder-Azure
-* ---------------------------------------------------------------------------------------- */
+/*----- Bot Storage: ----- */
 
 var tableName = 'botdata';
 var azureTableClient = new botbuilder_azure.AzureTableClient(tableName, process.env['AzureWebJobsStorage']);
 var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient);
-
-// Create your bot with a function to receive messages from the user
-// This default message handler is invoked if the user's utterance doesn't
-// match any intents handled by other dialogs.
-/*var bot = new builder.UniversalBot(connector, function (session, args) {
-    session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
-}).set('storage', tableStorage);*/
 
 // Make sure you add code to validate these fields
 var luisAppId = process.env.LuisAppId;
@@ -45,14 +34,21 @@ var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.micro
 
 const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey;
 
+
+// Create your bot with a function to receive messages from the user
+// This default message handler is invoked if the user's utterance doesn't
+// match any intents handled by other dialogs.
+
+var bot = new builder.UniversalBot(connector, function (session, args) {
+    session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
+}).set('storage', tableStorage);
+
 // Create a recognizer that gets intents from LUIS, and add it to the bot
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
-
+bot.recognizer(recognizer);
 
 
 // Add a dialog for each intent that the LUIS app recognizes.
-// See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
-/*
 bot.dialog('BlessingDisguise',
     (session) => {
         session.send('A good thing that seemed bad at first.');
@@ -60,7 +56,6 @@ bot.dialog('BlessingDisguise',
 ).triggerAction({
     matches: 'BlessingDisguise'
 });
-
 
 bot.dialog('DimeDozen',
     (session) => {
@@ -128,7 +123,6 @@ bot.dialog('CuttingCorners',
 ).triggerAction({
     matches: 'CuttingCorners'
 });
-
 
 bot.dialog('EasyDoesIt',
     (session) => {
@@ -361,23 +355,3 @@ bot.dialog('GuessAsMine',
 ).triggerAction({
     matches: 'GuessAsMine'
 });
-*/
-
-var bot = new builder.UniversalBot(connector, [
-    function (session) {
-        builder.Prompts.text(session, "Welcome to idiom. Please provide a troubling phrase and I will provide the wisdom.");
-        session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
-    }
-]).set('storage', tableStorage);
-
-bot.dialog('BlessingDisguise',
-    (session) => {
-        session.send('A good thing that seemed bad at first.');
-    }
-).triggerAction({
-    matches: 'BlessingDisguise'
-});
-
-
-
-bot.recognizer(recognizer);
