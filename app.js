@@ -59,7 +59,6 @@ bot.dialog('A dime a dozen',
     matches: 'DimeDozen'
 });
 
-
 bot.dialog('Beat around the bush',
     (session) => {
         session.send('"Beat around the bush"\n\nAvoid saying what you mean, usually because it is uncomfortable.');
@@ -68,7 +67,6 @@ bot.dialog('Beat around the bush',
 ).triggerAction({
     matches: 'BeatAroundBush'
 });
-
 
 bot.dialog('Better late than never',
     (session) => {
@@ -115,7 +113,6 @@ bot.dialog('Cut somebody some slack',
     matches: 'CutSomeSlack'
 });
 
-
 bot.dialog('Cutting corners',
     (session) => {
         session.send('"Cutting corners"\n\nDoing something poorly in order to save time or money.');
@@ -152,7 +149,6 @@ bot.dialog('Get something out of your system',
     matches: 'OutOfSystem'
 });
 
-
 bot.dialog('Get your act together',
     (session) => {
         session.send('"Get your act together"\n\nWork better or leave.');
@@ -161,7 +157,6 @@ bot.dialog('Get your act together',
 ).triggerAction({
     matches: 'ActTogether'
 });
-
 
 bot.dialog('Give someone the benefit of the doubt',
     (session) => {
@@ -181,7 +176,6 @@ bot.dialog('Go back to the drawing board',
     matches: 'BackDrawingBoard'
 });
 
-
 bot.dialog('HangInThere',
     (session) => {
         session.send('"Hang in there"\n\nDon\'t give up.');
@@ -200,7 +194,6 @@ bot.dialog('Hit the sack',
     matches: 'HitSack'
 });
 
-
 bot.dialog('It\'s not rocket science',
     (session) => {
         session.send('"It\'s not rocket science"\n\nIt\'s not complicated.');
@@ -209,7 +202,6 @@ bot.dialog('It\'s not rocket science',
 ).triggerAction({
     matches: 'RocketScience'
 });
-
 
 bot.dialog('Let someone off the hook',
     (session) => {
@@ -292,7 +284,6 @@ bot.dialog('Speak of the devil',
     matches: 'SpeakDevil'
 });
 
-
 bot.dialog('That\'s the last straw',
     (session) => {
         session.send('"That\'s the last straw"\n\nMy patience has run out.');
@@ -310,7 +301,6 @@ bot.dialog('The best of both worlds',
 ).triggerAction({
     matches: 'BestBothWorlds'
 });
-
 
 bot.dialog('Time flies when you\'re having fun',
     (session) => {
