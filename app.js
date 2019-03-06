@@ -51,7 +51,7 @@ bot.recognizer(recognizer);
 // Add a dialog for each intent that the LUIS app recognizes.
 bot.dialog('A blessing in disguise',
     (session) => {
-        session.send('"A blessing in disguise" ~ \n\n A good thing that seemed bad at first.');
+        session.send('"A blessing in disguise"\n\nA good thing that seemed bad at first.');
     }
 ).triggerAction({
     matches: 'BlessingDisguise'
@@ -59,7 +59,7 @@ bot.dialog('A blessing in disguise',
 
 bot.dialog('A dime a dozen',
     (session) => {
-        session.send('"A dime a dozen" ~ \n\n Something common.');
+        session.send('"A dime a dozen"\n\nSomething common.');
     }
 ).triggerAction({
     matches: 'DimeDozen'
@@ -68,73 +68,73 @@ bot.dialog('A dime a dozen',
 
 bot.dialog('Beat around the bush',
     (session) => {
-        session.send('"Beat around the bush" ~ \n\n Avoid saying what you mean, usually because it is uncomfortable.');
+        session.send('"Beat around the bush"\n\nAvoid saying what you mean, usually because it is uncomfortable.');
     }
 ).triggerAction({
     matches: 'BeatAroundBush'
 });
 
 
-bot.dialog('BetterLateNever',
+bot.dialog('Better late than never',
     (session) => {
-        session.send('Better to arrive late than not to come at all.');
+        session.send('"Better late than never"\n\nBetter to arrive late than not to come at all.');
     }
 ).triggerAction({
     matches: 'BetterLateNever'
 });
 
-bot.dialog('BiteBullet',
+bot.dialog('Bite the bullet',
     (session) => {
-        session.send('To get something over with because it is inevitable.');
+        session.send('"Bite the bullet"\n\nTo get something over with because it is inevitable.');
     }
 ).triggerAction({
     matches: 'BiteBullet'
 });
 
-bot.dialog('BreakLeg',
+bot.dialog('Break a leg',
     (session) => {
-        session.send('Good luck.');
+        session.send('"Break a leg"\n\nGood luck.');
     }
 ).triggerAction({
     matches: 'BreakLeg'
 });
 
-bot.dialog('CallDay',
+bot.dialog('Call it a day',
     (session) => {
-        session.send('Stop working on something.');
+        session.send('"Call it a day"\n\nStop working on something.');
     }
 ).triggerAction({
     matches: 'CallDay'
 });
 
-bot.dialog('CutSomeSlack',
+bot.dialog('Cut somebody some slack',
     (session) => {
-        session.send('Don\'t be so critical.');
+        session.send('"Cut somebody some slack"\n\nDon\'t be so critical.');
     }
 ).triggerAction({
     matches: 'CutSomeSlack'
 });
 
 
-bot.dialog('CuttingCorners',
+bot.dialog('Cutting corners',
     (session) => {
-        session.send('Doing something poorly in order to save time or money.');
+        session.send('"Cutting corners"\n\nDoing something poorly in order to save time or money.');
     }
 ).triggerAction({
     matches: 'CuttingCorners'
 });
 
-bot.dialog('EasyDoesIt',
+bot.dialog('Easy does it',
     (session) => {
-        session.send('Slow down.');
+        session.send('"Easy does it"\n\nSlow down.');
     }
 ).triggerAction({
     matches: 'EasyDoesIt'
 });
 
-bot.dialog('OutOfHand',
+bot.dialog('Get out of hand',
     (session) => {
-        session.send('Get out of control.');
+        session.send('"Get out of hand"\n\nGet out of control.');
     }
 ).triggerAction({
     matches: 'OutOfHand'
