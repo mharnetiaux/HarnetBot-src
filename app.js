@@ -51,7 +51,7 @@ bot.recognizer(recognizer);
 // Add a dialog for each intent that the LUIS app recognizes.
 bot.dialog('BlessingDisguise',
     (session) => {
-        session.send("A blessing in disguise \n Meaning: A good thing that seemed bad at first.");
+        session.send('"A blessing in disguise" ~ \n \n A good thing that seemed bad at first.');
     }
 ).triggerAction({
     matches: 'BlessingDisguise'
