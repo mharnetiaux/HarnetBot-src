@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from "copy-webpack-plugin";
-import environment from './webpack/enviornment.js';
+import environment from './webpack/environment';
 import path from 'path';
 
 const config = {
@@ -15,7 +15,7 @@ const config = {
         rules: [{
             test: /\.(js)$/,
             include: [
-                path.resolve(__dirname, './app')
+                path.resolve(__dirname, './client')
             ],
             use: [
                 { loader: 'babel-loader' }
@@ -61,13 +61,13 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             tile: 'Home Page Template',
-            template: path.resolve(__dirname, './server/views/main.hbs'),
+            template: 'index.hbs',
             inject: '</body>',
             filename: 'index.html'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
-            {from:'./images',to:'images'}
+            /*{from:'./images',to:'images'}*/
         ])
     ],
     stats: {
