@@ -1,54 +1,48 @@
-/*-----------------------------------------------------------------------------
-A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
------------------------------------------------------------------------------*/
-var restify = require('restify');
-var builder = require('botbuilder');
-var botbuilder_azure = require("botbuilder-azure");
+const   LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey,
+        restify = require('restify'),
+        builder = require('botbuilder'),
+        botbuilder_azure = require("botbuilder-azure"),
+        server = restify.createServer(),
 
-// Setup Restify Server
-var server = restify.createServer();
+        /*----- Connector init Bot Framework Service ----- */
+        connector = new builder.ChatConnector({
+            appId: process.env.MicrosoftAppId,
+            appPassword: process.env.MicrosoftAppPassword,
+            openIdMetadata: process.env.BotOpenIdMetadata
+        }),
+
+        /*----- Bot Storage ----- */
+        tableName = 'botdata',
+        azureTableClient = new botbuilder_azure.AzureTableClient(tableName, process.env['AzureWebJobsStorage']),
+        tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient),
+
+        /*----- LOUIS Vaton Creds----- */
+        luisAppId = process.env.LuisAppId,
+        luisAPIKey = process.env.LuisAPIKey,
+        luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com',
+
+        /*----- init Bot ----- */
+        bot = new builder.UniversalBot(connector, function (session, args) {
+            session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
+        }).set('storage', tableStorage),
+
+        /*----- init LOUIS ----- */
+        recognizer = new builder.LuisRecognizer(LuisModelUrl);
+
+
+
+/*----- init Server ----- */
 server.listen(process.env.port || process.env.PORT || 3978, function () {
-   console.log('%s listening to %s', server.name, server.url); 
-});
-  
-// Create chat connector for communicating with the Bot Framework Service
-var connector = new builder.ChatConnector({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword,
-    openIdMetadata: process.env.BotOpenIdMetadata 
+   console.log('%s listening to %s', server.name, server.url);
 });
 
-// Listen for messages from users 
+// Listen for messages from users
 server.post('/api/messages', connector.listen());
 
-/*----- Bot Storage: ----- */
-
-var tableName = 'botdata';
-var azureTableClient = new botbuilder_azure.AzureTableClient(tableName, process.env['AzureWebJobsStorage']);
-var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient);
-
-// Make sure you add code to validate these fields
-var luisAppId = process.env.LuisAppId;
-var luisAPIKey = process.env.LuisAPIKey;
-var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
-
-const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey;
-
-
-// Create your bot with a function to receive messages from the user
-// This default message handler is invoked if the user's utterance doesn't
-// match any intents handled by other dialogs.
-
-var bot = new builder.UniversalBot(connector, function (session, args) {
-    session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
-}).set('storage', tableStorage);
-
 // Create a recognizer that gets intents from LUIS, and add it to the bot
-var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
-
-// Add a dialog for each intent that the LUIS app recognizes.
+// Add a dialog for each intent that the LUIS recognizes.
 bot.dialog('A blessing in disguise',
     (session) => {
         session.send('"A blessing in disguise"\n\nA good thing that seemed bad at first.');
