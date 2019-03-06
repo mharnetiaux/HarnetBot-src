@@ -29,14 +29,6 @@ const   restify = require('restify'),
         /*----- init LOUIS ----- */
         recognizer = new builder.LuisRecognizer(LuisModelUrl);
 
-/*----- init Server ----- */
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-   console.log('%s listening to %s', server.name, server.url);
-});
-
-// Listen for messages from users
-server.post('/api/messages', connector.listen());
-
 // Create a recognizer that gets intents from LUIS, and add it to the bot
 bot.recognizer(recognizer);
 
@@ -374,3 +366,11 @@ bot.dialog('Your guess is as good as mine',
 ).triggerAction({
     matches: 'GuessAsMine'
 });
+
+/*----- init Server ----- */
+server.listen(process.env.port || process.env.PORT || 3978, function () {
+    console.log('%s listening to %s', server.name, server.url);
+});
+
+// Listen for messages from users
+server.post('/api/messages', connector.listen());
