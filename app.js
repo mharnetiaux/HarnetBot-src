@@ -16,10 +16,10 @@ const   restify = require('restify'),
         tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient),
 
         /*----- LOUIS Vaton Creds----- */
-        LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey,
         luisAppId = process.env.LuisAppId,
         luisAPIKey = process.env.LuisAPIKey,
         luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com',
+        LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey,
 
         /*----- init Bot ----- */
         bot = new builder.UniversalBot(connector, function (session, args) {
