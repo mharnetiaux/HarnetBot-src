@@ -41,7 +41,7 @@
   "scripts": {
     "start": "babel-node -- index.js",
     "dev": "rm -f -r ./dist & replace 'false' 'true' webpack/environment.js & babel-node -- index.js",
-    "build": "replace 'true' 'false' webpack/environment.js & webpack -p"
+    "dist": "replace 'true' 'false' webpack/environment.js & webpack -p"
   },
   "author": "",
   "license": "ISC"
