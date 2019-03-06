@@ -47,7 +47,7 @@ const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisApp
 
 // Create a recognizer that gets intents from LUIS, and add it to the bot
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
-bot.recognizer(recognizer);
+
 
 
 // Add a dialog for each intent that the LUIS app recognizes.
@@ -386,3 +386,6 @@ var bot = new builder.UniversalBot(connector, [
         session.endDialog();
     }
 ]).set('storage', tableStorage); // Register in-memory storage
+
+
+bot.recognizer(recognizer);
