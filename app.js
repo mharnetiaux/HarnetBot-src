@@ -140,35 +140,35 @@ bot.dialog('Get out of hand',
     matches: 'OutOfHand'
 });
 
-bot.dialog('OutOfSystem',
+bot.dialog('Get something out of your system',
     (session) => {
-        session.send('Do the thing you\'ve been wanting to do so you can move on.');
+        session.send('"Get something out of your system"\n\nDo the thing you\'ve been wanting to do so you can move on.');
     }
 ).triggerAction({
     matches: 'OutOfSystem'
 });
 
 
-bot.dialog('ActTogether',
+bot.dialog('Get your act together',
     (session) => {
-        session.send('Work better or leave.');
+        session.send('"Get your act together"\n\nWork better or leave.');
     }
 ).triggerAction({
     matches: 'ActTogether'
 });
 
 
-bot.dialog('BenefitDoubt',
+bot.dialog('Give someone the benefit of the doubt',
     (session) => {
-        session.send('Trust what someone says.');
+        session.send('"Give someone the benefit of the doubt"\n\nTrust what someone says.');
     }
 ).triggerAction({
     matches: 'BenefitDoubt'
 });
 
-bot.dialog('BackDrawingBoard',
+bot.dialog('Go back to the drawing board',
     (session) => {
-        session.send('Start over.');
+        session.send('"Go back to the drawing board"\n\nStart over.');
     }
 ).triggerAction({
     matches: 'BackDrawingBoard'
@@ -177,179 +177,179 @@ bot.dialog('BackDrawingBoard',
 
 bot.dialog('HangInThere',
     (session) => {
-        session.send('Don\'t give up.');
+        session.send('"Hang in there"\n\nDon\'t give up.');
     }
 ).triggerAction({
     matches: 'HangInThere'
 });
 
-bot.dialog('HitSack',
+bot.dialog('Hit the sack',
     (session) => {
-        session.send('Go to sleep.');
+        session.send('"Hit the sack"\n\nGo to sleep.');
     }
 ).triggerAction({
     matches: 'HitSack'
 });
 
 
-bot.dialog('RocketScience',
+bot.dialog('It\'s not rocket science',
     (session) => {
-        session.send('It\'s not complicated.');
+        session.send('"It\'s not rocket science"\n\nIt\'s not complicated.');
     }
 ).triggerAction({
     matches: 'RocketScience'
 });
 
 
-bot.dialog('LetOffHook',
+bot.dialog('Let someone off the hook',
     (session) => {
-        session.send('To not hold someone responsible for something.');
+        session.send('"Let someone off the hook"\n\nTo not hold someone responsible for something.');
     }
 ).triggerAction({
     matches: 'LetOffHook'
 });
 
-bot.dialog('LongStoryShort',
+bot.dialog('Make a long story short',
     (session) => {
-        session.send('Tell something briefly.');
+        session.send('"Make a long story short"\n\nTell something briefly.');
     }
 ).triggerAction({
     matches: 'LongStoryShort'
 });
 
-bot.dialog('MissBoat',
+bot.dialog('Miss the boat',
     (session) => {
-        session.send('It\'s too late.');
+        session.send('"Miss the boat"\n\nIt\'s too late.');
     }
 ).triggerAction({
     matches: 'MissBoat'
 });
 
-bot.dialog('PainNoGain',
+bot.dialog('No pain, no gain',
     (session) => {
-        session.send('You have to work for what you want.');
+        session.send('"No pain, no gain"\n\nYou have to work for what you want.');
     }
 ).triggerAction({
     matches: 'PainNoGain'
 });
 
-bot.dialog('OnBall',
+bot.dialog('On the ball',
     (session) => {
-        session.send('Doing a good job.');
+        session.send('"On the ball"\n\nDoing a good job.');
     }
 ).triggerAction({
     matches: 'OnBall'
 });
 
-bot.dialog('PullLeg',
+bot.dialog('Pull someone\'s leg',
     (session) => {
-        session.send('To joke with someone.');
+        session.send('"Pull someone\'s leg"\n\nTo joke with someone.');
     }
 ).triggerAction({
     matches: 'PullLeg'
 });
 
-bot.dialog('PullTogether',
+bot.dialog('Pull yourself together',
     (session) => {
-        session.send('Calm down.');
+        session.send('"Pull yourself together"\n\nCalm down.');
     }
 ).triggerAction({
     matches: 'PullTogether'
 });
 
-bot.dialog('SoFarSoGood',
+bot.dialog('So far so good',
     (session) => {
-        session.send('Things are going well so far.');
+        session.send('"So far so good"\n\nThings are going well so far.');
     }
 ).triggerAction({
     matches: 'SoFarSoGood'
 });
 
-bot.dialog('SpeakDevil',
+bot.dialog('Speak of the devil',
     (session) => {
-        session.send('The person we were just talking about showed up!');
+        session.send('"Speak of the devil"\n\nThe person we were just talking about showed up!');
     }
 ).triggerAction({
     matches: 'SpeakDevil'
 });
 
 
-bot.dialog('LastStraw',
+bot.dialog('That\'s the last straw',
     (session) => {
-        session.send('My patience has run out.');
+        session.send('"That\'s the last straw"\n\nMy patience has run out.');
     }
 ).triggerAction({
     matches: 'LastStraw'
 });
 
-bot.dialog('BestBothWorlds',
+bot.dialog('The best of both worlds',
     (session) => {
-        session.send('An ideal situation.');
+        session.send('"The best of both worlds"\n\nAn ideal situation.');
     }
 ).triggerAction({
     matches: 'BestBothWorlds'
 });
 
 
-bot.dialog('FliesHavingFun',
+bot.dialog('Time flies when you\'re having fun',
     (session) => {
-        session.send('You don\'t notice how long something lasts when it\'s fun.');
+        session.send('"Time flies when you\'re having fun"\n\nYou don\'t notice how long something lasts when it\'s fun.');
     }
 ).triggerAction({
     matches: 'FliesHavingFun'
 });
 
-bot.dialog('BentShape',
+bot.dialog('To get bent out of shape',
     (session) => {
-        session.send('To get upset.');
+        session.send('"To get bent out of shape"\n\nTo get upset.');
     }
 ).triggerAction({
     matches: 'BentShape'
 });
 
-bot.dialog('MattersWorse',
+bot.dialog('To make matters worse',
     (session) => {
-        session.send('Make a problem worse.');
+        session.send('"To make matters worse"\n\nMake a problem worse.');
     }
 ).triggerAction({
     matches: 'MattersWorse'
 });
 
-bot.dialog('UnderWeather',
+bot.dialog('Under the weather',
     (session) => {
-        session.send('Sick.');
+        session.send('"Under the weather"\n\nSick.');
     }
 ).triggerAction({
     matches: 'UnderWeather'
 });
 
-bot.dialog('CrossBridge',
+bot.dialog('We\'ll cross that bridge when we come to it',
     (session) => {
-        session.send('Let\'s not talk about that problem right now.');
+        session.send('"We\'ll cross that bridge when we come to it"\n\nLet\'s not talk about that problem right now.');
     }
 ).triggerAction({
     matches: 'CrossBridge'
 });
 
-bot.dialog('WrapHeadAround',
+bot.dialog('Wrap your head around something',
     (session) => {
-        session.send('Understand something complicated.');
+        session.send('"Wrap your head around something"\n\nUnderstand something complicated.');
     }
 ).triggerAction({
     matches: 'WrapHeadAround'
 });
 
-bot.dialog('SayThatAgain',
+bot.dialog('You can say that again',
     (session) => {
-        session.send('That\'s true, I agree.');
+        session.send('"You can say that again"\n\nThat\'s true, I agree.');
     }
 ).triggerAction({
     matches: 'SayThatAgain'
 });
 
-bot.dialog('GuessAsMine',
+bot.dialog('Your guess is as good as mine',
     (session) => {
-        session.send('I have no idea.');
+        session.send('"Your guess is as good as mine"\n\nI have no idea.');
 
     }
 ).triggerAction({
