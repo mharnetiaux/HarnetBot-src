@@ -34,9 +34,9 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 // Create your bot with a function to receive messages from the user
 // This default message handler is invoked if the user's utterance doesn't
 // match any intents handled by other dialogs.
-var bot = new builder.UniversalBot(connector, function (session, args) {
+/*var bot = new builder.UniversalBot(connector, function (session, args) {
     session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
-}).set('storage', tableStorage);
+}).set('storage', tableStorage);*/
 
 // Make sure you add code to validate these fields
 var luisAppId = process.env.LuisAppId;
@@ -50,15 +50,9 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 
-bot.dialog('greetings', [
-    // Step 1
-    function (session) {
-        builder.Prompts.text(session, 'Hello! I am here to help with confusing phrases. Can I help?');
-    },
-]);
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
-
+/*
 bot.dialog('BlessingDisguise',
     (session) => {
         session.send('A good thing that seemed bad at first.');
@@ -367,3 +361,28 @@ bot.dialog('GuessAsMine',
 ).triggerAction({
     matches: 'GuessAsMine'
 });
+*/
+
+
+// This is a dinner reservation bot that uses a waterfall technique to prompt users for input.
+var bot = new builder.UniversalBot(connector, [
+    function (session) {
+        session.send("Welcome to the dinner reservation.");
+        builder.Prompts.time(session, "Please provide a reservation date and time (e.g.: June 6th at 5pm)");
+    },
+    function (session, results) {
+        session.dialogData.reservationDate = builder.EntityRecognizer.resolveTime([results.response]);
+        builder.Prompts.text(session, "How many people are in your party?");
+    },
+    function (session, results) {
+        session.dialogData.partySize = results.response;
+        builder.Prompts.text(session, "Whose name will this reservation be under?");
+    },
+    function (session, results) {
+        session.dialogData.reservationName = results.response;
+
+        // Process request and display reservation details
+        session.send(`Reservation confirmed. Reservation details: <br/>Date/Time: ${session.dialogData.reservationDate} <br/>Party size: ${session.dialogData.partySize} <br/>Reservation name: ${session.dialogData.reservationName}`);
+        session.endDialog();
+    }
+]).set('storage', tableStorage); // Register in-memory storage
