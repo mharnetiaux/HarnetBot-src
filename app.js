@@ -1,5 +1,4 @@
-const   LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey,
-        restify = require('restify'),
+const   restify = require('restify'),
         builder = require('botbuilder'),
         botbuilder_azure = require("botbuilder-azure"),
         server = restify.createServer(),
@@ -17,6 +16,7 @@ const   LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisA
         tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient),
 
         /*----- LOUIS Vaton Creds----- */
+        LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey,
         luisAppId = process.env.LuisAppId,
         luisAPIKey = process.env.LuisAPIKey,
         luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com',
