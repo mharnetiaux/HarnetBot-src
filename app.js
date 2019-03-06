@@ -365,7 +365,8 @@ bot.dialog('GuessAsMine',
 
 var bot = new builder.UniversalBot(connector, [
     function (session) {
-        builder.Prompts.text(session, "Welcome to idiom.Please provide a troubling phrase and I will provide the wisdom.");
+        builder.Prompts.text(session, "Welcome to idiom. Please provide a troubling phrase and I will provide the wisdom.");
+        session.send('Sorry did not find idiom for \'%s\'.', session.message.text);
     }
 ]).set('storage', tableStorage);
 
