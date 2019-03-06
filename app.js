@@ -29,8 +29,6 @@ const   LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisA
         /*----- init LOUIS ----- */
         recognizer = new builder.LuisRecognizer(LuisModelUrl);
 
-
-
 /*----- init Server ----- */
 server.listen(process.env.port || process.env.PORT || 3978, function () {
    console.log('%s listening to %s', server.name, server.url);
