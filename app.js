@@ -363,14 +363,20 @@ bot.dialog('GuessAsMine',
 });
 */
 
-
-// This is a dinner reservation bot that uses a waterfall technique to prompt users for input.
 var bot = new builder.UniversalBot(connector, [
     function (session) {
-        session.send("Welcome to idiom...");
-        builder.Prompts.text(session, "Please provide a troubling phrase and I will provide the wisdom.");
+        builder.Prompts.text(session, "Welcome to idiom.Please provide a troubling phrase and I will provide the wisdom.");
     }
-]).set('storage', tableStorage); // Register in-memory storage
+]).set('storage', tableStorage);
+
+bot.dialog('BlessingDisguise',
+    (session) => {
+        session.send('A good thing that seemed bad at first.');
+    }
+).triggerAction({
+    matches: 'BlessingDisguise'
+});
+
 
 
 bot.recognizer(recognizer);
