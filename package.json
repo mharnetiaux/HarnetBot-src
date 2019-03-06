@@ -41,7 +41,7 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "babel-node -- index.js",
     "dev": "rm -f -r ./dist & replace 'false' 'true' webpack/environment.js & babel-node -- index.js",
     "build": "replace 'true' 'false' webpack/environment.js & webpack -p"
   },
