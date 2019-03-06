@@ -49,27 +49,26 @@ bot.recognizer(recognizer);
 
 
 // Add a dialog for each intent that the LUIS app recognizes.
-bot.dialog('BlessingDisguise',
+bot.dialog('A blessing in disguise',
     (session) => {
-        session.send('"A blessing in disguise" ~ \n \n A good thing that seemed bad at first.');
+        session.send('"A blessing in disguise" ~ \n\n A good thing that seemed bad at first.');
     }
 ).triggerAction({
     matches: 'BlessingDisguise'
 });
 
-/*
-bot.dialog('DimeDozen',
+bot.dialog('A dime a dozen',
     (session) => {
-        session.send('Something common.');
+        session.send('"A dime a dozen" ~ \n\n Something common.');
     }
 ).triggerAction({
     matches: 'DimeDozen'
 });
 
 
-bot.dialog('BeatAroundBush',
+bot.dialog('Beat around the bush',
     (session) => {
-        session.send('Avoid saying what you mean, usually because it is uncomfortable.');
+        session.send('"Beat around the bush" ~ \n\n Avoid saying what you mean, usually because it is uncomfortable.');
     }
 ).triggerAction({
     matches: 'BeatAroundBush'
@@ -355,4 +354,4 @@ bot.dialog('GuessAsMine',
     }
 ).triggerAction({
     matches: 'GuessAsMine'
-});*/
+});
