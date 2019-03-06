@@ -23,14 +23,6 @@ const config = {
             exclude: /node_modules/
         },
             {
-                test: /\.(scss)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                }),
-                exclude: /node_modules/
-            },
-            {
                 test: /\.(less)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
