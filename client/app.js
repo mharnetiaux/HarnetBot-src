@@ -2,7 +2,6 @@ import { DirectLine } from 'botframework-directlinejs';
 import './styles/app.styles.less';
 import React, {Component} from 'react';
 import ReactWebChat from 'botframework-webchat';
-//import axios from 'axios';
 import {render} from 'react-dom';
 
 class App extends Component{
