@@ -7,24 +7,25 @@ import webpackConfig from './webpack.config.babel';
 import options from './webpack/middleware-options';
 
 const app = express(),
+    hbs = exphbs.create({
+        defaultLayout: 'main'
+    }),
     port = options.port,
     compiler = webpack(webpackConfig),
     middleware = webpack_dev_middleware(compiler, options),
     hot_middleware = webpack_hot_middleware(compiler);
 
-app.set('view engine', 'hbs');
+//app.set('view engine', 'hbs');
 
-///app.set('views','./');
-
-app.engine('hbs', exphbs());
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.static(webpackConfig.output.path), middleware);
 
 app.use(hot_middleware);
 
 app.get('/',(req, res) => {
-    "use strict";
-    res.render('index');
+    res.render('home', {hello: 'world'});
 });
 
 app.listen(port);

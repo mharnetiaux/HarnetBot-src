@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import environment from './webpack/environment';
 import path from 'path';
+import HandlebarsPlugin from 'handlebars-webpack-plugin';
 
 const config = {
     entry: environment.hotModule(),
@@ -12,16 +13,17 @@ const config = {
         filename: 'js/[name].bundle.js'
     },
     module: {
-        rules: [{
-            test: /\.(js)$/,
-            include: [
-                path.resolve(__dirname, './client')
-            ],
-            use: [
-                { loader: 'babel-loader' }
-            ],
-            exclude: /node_modules/
-        },
+        rules: [
+            {
+                test: /\.(js)$/,
+                include: [
+                    path.resolve(__dirname, './client')
+                ],
+                use: [
+                    { loader: 'babel-loader' }
+                ],
+                exclude: /node_modules/
+            },
             {
                 test: /\.(less)$/,
                 use: ExtractTextPlugin.extract({
@@ -31,8 +33,8 @@ const config = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(hbs)$/,
-                use: [{ loader: 'handlebars-loader' }],
+                test: /\.handlebars$/,
+                use: [{ loader: 'handlebars-loader'}],
                 exclude: /node_modules/
             },
             {
@@ -52,10 +54,7 @@ const config = {
             disable: environment.embeddedStyles()
         }),
         new HtmlWebpackPlugin({
-            tile: 'Home Page Template',
-            template: 'index.hbs',
-            inject: '</body>',
-            filename: 'index.html'
+            template: './views/home.handlebars'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
