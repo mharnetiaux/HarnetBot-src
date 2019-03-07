@@ -15,19 +15,6 @@ class App extends Component{
         this.directLine = new DirectLine({ token: this.state.token});
     }
 
-   /*componentDidMount() {
-       axios({
-           method: 'post',
-           url: 'https://directline.botframework.com/v3/directline/tokens/generate',
-           headers: {
-               Accept: "*!/!*",
-               Authorization: "Bearer OZZC4b2L4Yo.YTksjo_Z0IU0bu8QgCeDHgVibWcEk4ooaZgyiD4vvHE"
-           }
-       }).then(response => {
-           console.log(response.data);
-       });
-   }*/
-
     render() {
         return (
             <section>
