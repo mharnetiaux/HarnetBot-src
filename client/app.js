@@ -34,7 +34,7 @@ class App extends Component{
                 <h2>Welcome to Idiom</h2>
                 <p>Search for an idiom and I will provide the meaning.</p>
                 {
-                    this.state.directLine ? <ReactWebChat id="test" className="webChat" directLine={this.state.directLine}/> : <div>Sorry, no service. Check back later</div>
+                    this.state.directLine ? <ReactWebChat id="test" className="webChat" directLine={this.state.directLine}/> : null
                 }
             </section>
         )
