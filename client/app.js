@@ -26,15 +26,17 @@ class App extends Component{
                 directLine: new DirectLine({ token: response.data.token})
             });
         }).then(()=>{
-            document.getElementsByTagName('input')[1].focus();
+            window.document.getElementsByTagName('input')[1].focus();
         });
     }
 
     render() {
         return (
             <section>
-                <h2>Welcome to <span className="logo">i</span>diom</h2>
-                <p>Search for an idiom and I will provide the meaning.</p>
+                <header>
+                    <h2>Welcome to <span className="logo">i</span>diom</h2>
+                    <p>Search for an idiom and I will provide the meaning.</p>
+                </header>
                 {
                     this.state.directLine ? <ReactWebChat id="test" className="webChat" directLine={this.state.directLine}/> : null
                 }
