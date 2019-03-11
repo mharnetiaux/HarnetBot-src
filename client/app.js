@@ -25,6 +25,8 @@ class App extends Component{
             this.setState({
                 directLine: new DirectLine({ token: response.data.token})
             });
+        }).then(()=>{
+            document.getElementsByTagName('input')[1].focus();
         });
     }
 
