@@ -1,22 +1,27 @@
 @import "reset.less";
 
-html,
-body,
-main,
+main {
+   width: 95%;
+   margin: 20px auto;
+}
+
 main > section:first-child {
-    height: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  position: fixed;
+  width: 90%;
+  margin: auto;
 }
 
 header {
    background: #fff;
    z-index: 1;
    border-bottom: 1px solid #3b5998;
-   width: 100%;
    position: fixed;
+   width: 90%;
 }
 
 #root {
-  padding: 1rem;
   font-family: Calibri, "Helvetica Neue", Arial, sans-serif;
   color: #3b5998;
   .logo {
