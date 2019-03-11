@@ -26,7 +26,7 @@ class App extends Component{
                 directLine: new DirectLine({ token: response.data.token})
             });
         }).then(()=>{
-            window.document.getElementsByTagName('input')[1].focus();
+            document.getElementsByTagName('input')[1].focus();
         });
     }
 
