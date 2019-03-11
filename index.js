@@ -25,8 +25,6 @@ app.use(express.static(webpackConfig.output.path), middleware);
 
 app.use(hot_middleware);
 
-console.log(process.env);
-
 app.get('/',(req, res) => {
     if(env.isDev) {
         res.render('home');
