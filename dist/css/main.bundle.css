@@ -1,1 +1,1 @@
-#root .webChat{height:50%}#root .webChat div[role=log]{border:1px solid #333}#root .webChat .row.message{margin-bottom:1rem}#root .webChat .main{display:flex;align-items:center;border:1px solid #333}#root .webChat .main form{margin:0}
+#root{font-family:Arial;color:#3b5998}#root .logo{font-size:48px}#root p{color:#333}#root div[role=log]{border:1px solid #3b5998}

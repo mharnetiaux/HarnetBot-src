@@ -31,7 +31,7 @@ class App extends Component{
     render() {
         return (
             <section>
-                <h2>Welcome to Idiom</h2>
+                <h2>Welcome to <span className="logo">i</span>diom</h2>
                 <p>Search for an idiom and I will provide the meaning.</p>
                 {
                     this.state.directLine ? <ReactWebChat id="test" className="webChat" directLine={this.state.directLine}/> : null
