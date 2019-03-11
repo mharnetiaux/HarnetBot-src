@@ -4,7 +4,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import environment from './webpack/environment';
 import path from 'path';
-import HandlebarsPlugin from 'handlebars-webpack-plugin';
 
 const config = {
     entry: environment.hotModule(),

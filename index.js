@@ -25,7 +25,7 @@ app.use(express.static(webpackConfig.output.path), middleware);
 app.use(hot_middleware);
 
 app.get('/',(req, res) => {
-    res.render('home', {hello: 'world'});
+    res.render('home');
 });
 
 app.listen(port);
