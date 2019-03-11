@@ -1,13 +1,55 @@
+@import "reset.less";
+
 #root {
-  font-family: Arial;
+  padding: 1rem;
+  font-family: Calibri, "Helvetica Neue", Arial, sans-serif;
   color: #3b5998;
   .logo {
-     font-size: 48px;
+     color: green;
+     font-size: 32px;
   }
+
+  .main {
+      border: none;
+      > div {
+        width: auto;
+      }
+  }
+
+  .bubble,
+  .markdown {
+      height: auto;
+      min-height: auto;
+      padding: 0.5rem;
+      background: #3b5998;
+      p {
+         color: #fff;
+         padding: 0;
+         margin: 0;
+      }
+  }
+
+  .markdown p:first-child {
+     margin-bottom: 0.5rem;
+  }
+
   p {
+     font-size: 14px;
      color: #333;
+     margin: 0.5rem 0 1rem 0;
   }
   div[role="log"] {
-    border: 1px solid #3b5998;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid #3b5998;
+    border-bottom: 1px solid #3b5998;
+  }
+
+  button[title="Upload file"]{
+     display: none;
+  }
+
+  input {
+    padding-left: 0;
+    font-size: 18px;
   }
 }
